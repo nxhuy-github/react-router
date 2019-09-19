@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom'
 
 function ItemDetail(props) {
 
-  const [item, setItem] = useState({})
+  const [item, setItem] = useState({
+    images: {},
+    ratings: {}
+  })
 
   useEffect(() => {
     console.log(props.match) // 'match' is a prop
@@ -18,7 +21,14 @@ function ItemDetail(props) {
   }
   return (
     <div>
-      <h1>Item</h1>
+      <h1>{item.name}</h1>
+      <h2>{item.type}</h2>
+      <ul>
+        <li>avgStars: {item.ratings.avgStars}</li>
+        <li>totalPoints: {item.ratings.totalPoints}</li>
+        <li>numberVotes: {item.ratings.numberVotes}</li>
+      </ul>
+      <img src={item.images.information} />
     </div>
   );
 }
