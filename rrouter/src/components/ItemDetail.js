@@ -14,7 +14,9 @@ function ItemDetail(props) {
   }, [])
 
   const fetchItem = async () => {
-    const detail = await fetch(`https://fortnite-public-api.theapinetwork.com/prod09/item/get?id=${props.match.params.id}`)
+    const detail = await fetch(
+      `https://fortnite-public-api.theapinetwork.com/prod09/item/get?id=${props.match.params.id}`
+      )
     const data = await detail.json()
     console.log(data)
     setItem(data)
